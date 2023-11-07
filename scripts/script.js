@@ -17,12 +17,25 @@ function dolist() {
   function button_reset(id){
         let list_do = document.getElementById("container");
         let button_reset = document.createElement("button");
+        let button_clean = document.createElement("button");
+        button_clean.classList.add('button');
         button_reset.classList.add("button");
+        button_reset.innerHTML = "tirar feito"
+        button_clean.innerHTML = 'excluir tarefa'
+        button_clean.onclick = function(){
+          let p = document.getElementById(id);
+          let buttons = document.querySelectorAll(".button");
+          for (let i = 1; i < 3; i++){
+            buttons[i].remove()
+          }
+          p.remove()
+        }
         button_reset.onclick = function(){
             let p = document.getElementById(id);
             p.classList.remove('animation')
       }
       list_do.appendChild(button_reset);
+      list_do.appendChild(button_clean);
   }
   
   function do_list() {
